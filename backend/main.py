@@ -71,17 +71,39 @@ async def generate_creatives(
         
     results = await asyncio.gather(*tasks)
     
-    file_paths = []
-    for res in results:
+    files_to_zip = []
+    
+    for i, res in enumerate(results, 1):
         creatives.append(res)
-        # Extract file path from URL (hacky but works for local)
-        # URL is /static/creatives/filename.png
-        # File path is Config.STATIC_DIR/creatives/filename.png
-        filename = res.image_url.split("/")[-1]
-        file_paths.append(os.path.join(Config.CREATIVES_DIR, filename))
         
+        # Original image path
+        filename = res.image_url.split("/")[-1]
+        original_image_path = os.path.join(Config.CREATIVES_DIR, filename)
+        
+        # New filenames for zip
+        image_name = f"ad_variant_{i:02d}.png"
+        text_name = f"ad_variant_{i:02d}.txt"
+        
+        # Add image mapping
+        files_to_zip.append({
+            "path": original_image_path,
+            "name": image_name
+        })
+        
+        # Create text file
+        text_content = f"Headline: {res.headline}\nCaption: {res.caption}\nTone: {res.tone}"
+        text_path = os.path.join(Config.TEMP_DIR, f"{session_id}_{text_name}")
+        with open(text_path, "w") as f:
+            f.write(text_content)
+            
+        # Add text mapping
+        files_to_zip.append({
+            "path": text_path,
+            "name": text_name
+        })
+
     # Create ZIP
-    zip_url_path = ZipService.create_zip(session_id, file_paths)
+    zip_url_path = ZipService.create_zip(session_id, files_to_zip)
     zip_url = StorageService.get_file_url(zip_url_path)
     
     return {
