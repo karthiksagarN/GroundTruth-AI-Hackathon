@@ -4,7 +4,7 @@ import { Download, ExternalLink } from 'lucide-react';
 const ResultsGallery = ({ results, zipUrl }) => {
     if (!results || results.length === 0) return null;
 
-    const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000';
+    const API_URL = 'https://groundtruth-ai-hackathon.onrender.com' || 'http://localhost:8000';
 
     return (
         <div className="container mx-auto px-4 py-20">

@@ -15,7 +15,7 @@ function App() {
     setZipUrl(null);
 
     try {
-      const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000';
+      const API_URL = 'https://groundtruth-ai-hackathon.onrender.com' || 'http://localhost:8000';
       const response = await axios.post(`${API_URL}/generate`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
