@@ -29,11 +29,11 @@ const Navbar = () => {
         <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
             <div className="container mx-auto px-6 h-20 flex items-center justify-between">
                 <Link to="/" className="flex items-center gap-2 group">
-                    <div className="w-10 h-10 bg-gradient-to-br from-indigo-600 to-violet-600 rounded-xl flex items-center justify-center text-white shadow-lg shadow-indigo-200 group-hover:scale-105 transition-transform duration-300">
-                        <Sparkles size={20} />
+                    <div className="w-10 h-10 bg-gradient-to-br to-violet-600 rounded-xl flex items-center justify-center text-white shadow-lg shadow-indigo-200 group-hover:scale-105 transition-transform duration-300">
+                        <img src="/logo3.png" alt="Logo" className="w-8 h-8" />
                     </div>
                     <span className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-gray-900 to-gray-600">
-                        Creative Studio
+                        AdCraft Studio
                     </span>
                 </Link>
 

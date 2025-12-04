@@ -236,7 +236,7 @@ const LandingPage = () => {
                                 <div>
                                     <h3 className="text-lg font-bold text-gray-900 mb-1">Email Us</h3>
                                     <p className="text-gray-600 mb-2">Get in touch via email</p>
-                                    <a href="mailto:hello@creativestudio.ai" className="text-indigo-600 font-medium hover:underline">hello@creativestudio.ai</a>
+                                    <a href="mailto:karthik.nallagula@proton.me" className="text-indigo-600 font-medium hover:underline">karthik.nallagula@proton.me</a>
                                 </div>
                             </div>
 
@@ -247,7 +247,7 @@ const LandingPage = () => {
                                 <div>
                                     <h3 className="text-lg font-bold text-gray-900 mb-1">Call Us</h3>
                                     <p className="text-gray-600 mb-2">Mon-Fri 9AM-6PM PST</p>
-                                    <span className="text-gray-900 font-medium">+1 (555) 123-4567</span>
+                                    <span className="text-gray-900 font-medium">+91 9988998899</span>
                                 </div>
                             </div>
 
@@ -258,7 +258,7 @@ const LandingPage = () => {
                                 <div>
                                     <h3 className="text-lg font-bold text-gray-900 mb-1">Visit Us</h3>
                                     <p className="text-gray-600 mb-2">Our headquarters</p>
-                                    <span className="text-gray-900 font-medium">San Francisco, CA</span>
+                                    <span className="text-gray-900 font-medium">Hyderabad, Telangana, India</span>
                                 </div>
                             </div>
                         </div>
