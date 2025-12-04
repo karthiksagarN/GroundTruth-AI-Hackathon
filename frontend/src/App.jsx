@@ -40,9 +40,8 @@ function App() {
 
       {/* Footer */}
       <footer className="text-center py-8 text-gray-400 text-sm mt-20 border-t border-gray-100">
-        <p>© 2025 AI Creative Studio. Powered by Flux.1 & GPT-4o.</p>
+        <p>© 2025 AI Creative Studio. Powered by NanoBananaPro & GPT-4o.</p>
         <p>Developed by Karthik Sagar Nallagula</p>
-        <p>GroundTruth AI Hackathon</p>
       </footer>
     </div>
   );

@@ -20,7 +20,7 @@
 *   **Input:** Upload Brand Logo + Product Image + Select Tone (e.g., Premium, Playful).
 *   **Action:** Click "Generate Creatives".
 *   **Output:**
-    *   A gallery of 10+ generated ad images (Flux.1).
+    *   A gallery of 10+ generated ad images (NanoBananaPro).
     *   Matching headlines and captions for each (GPT-4o).
     *   A downloadable ZIP file containing all assets.
 
@@ -33,7 +33,7 @@ I built a **Production-Ready** full-stack application, moving beyond simple scri
 
 1.  **Frontend (React + Tailwind):** A premium, responsive UI that handles file uploads and displays results in a beautiful grid. It uses glassmorphism and smooth animations for a high-end feel.
 2.  **Backend (FastAPI):** A high-performance Python API that orchestrates the generation process.
-3.  **Image Generation (Flux.1):** I integrated **Flux.1 via fal.ai** for state-of-the-art image synthesis, ensuring high fidelity and adherence to the requested tone.
+3.  **Image Generation (NanoBananaPro):** I integrated **NanoBananaPro via fal.ai** for state-of-the-art image synthesis, ensuring high fidelity and adherence to the requested tone.
 4.  **Text Generation (GPT-4o):** I used **OpenAI's GPT-4o** to generate witty and context-aware marketing copy that matches the visual style.
 5.  **Parallel Processing:** To ensure speed, the backend generates multiple creatives concurrently using Python's `asyncio`.
 6.  **Mock Mode:** I implemented a robust fallback system that allows the app to run without API keys (using placeholder images and text), ensuring it's always testable.
@@ -43,7 +43,7 @@ I built a **Production-Ready** full-stack application, moving beyond simple scri
 
 *   **Frontend:** React, Vite, Tailwind CSS, Lucide React
 *   **Backend:** Python 3.11, FastAPI, Uvicorn
-*   **AI Models:** Flux.1 (Image), GPT-4o (Text)
+*   **AI Models:** NanoBananaPro (Image), GPT-4o (Text)
 *   **Infrastructure:** Fal.ai Client, OpenAI SDK
 *   **Utilities:** Pillow (Image Processing), Shutil (Zip Archiving)
 

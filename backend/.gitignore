@@ -1,3 +1,4 @@
 .env
 *__pycache__
 backend/static/*
+backend/__pycache__

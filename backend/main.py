@@ -30,7 +30,11 @@ app.mount("/static", StaticFiles(directory=Config.STATIC_DIR), name="static")
 
 @app.head("/health")
 async def health_check():
-    return {"status": "healthy", "mock_mode": Config.MOCK_MODE}
+    return {"status": "healthy"}
+
+@app.get("/health")
+async def health_check():
+    return {"status": "healthy"}
 
 @app.post("/generate", response_model=GenerateResponse)
 async def generate_creatives(
@@ -39,7 +43,7 @@ async def generate_creatives(
     brand_name: str = Form(...),
     tagline: Optional[str] = Form(None),
     tone: str = Form(...),
-    num_creatives: int = Form(10)
+    num_creatives: int = 2
 ):
     session_id = str(uuid.uuid4())
     
@@ -52,22 +56,9 @@ async def generate_creatives(
     
     # Generate creatives in parallel
     # We'll generate 5 variations of prompts based on tone
-    prompts = [
-        f"A minimalist product shot of {brand_name}, {tone} lighting, clean background",
-        f"A lifestyle shot of {brand_name} in use, {tone} atmosphere, happy people",
-        f"A close-up detail shot of {brand_name}, {tone} texture, macro photography",
-        f"A studio shot of {brand_name} on a podium, {tone} colors, dramatic lighting",
-        f"A flat lay composition of {brand_name} with props, {tone} style, overhead view"
-    ]
-    
-    # Repeat prompts to match num_creatives
-    import itertools
-    prompt_cycle = itertools.cycle(prompts)
-    
     for i in range(num_creatives):
-        prompt = next(prompt_cycle)
         # Create coroutines for image and text generation
-        tasks.append(generate_single_creative(i, prompt, tone, brand_name, tagline))
+        tasks.append(generate_single_creative(i, tone, brand_name, tagline, product_path, logo_path))
         
     results = await asyncio.gather(*tasks)
     
@@ -112,9 +103,9 @@ async def generate_creatives(
         "zip_url": zip_url
     }
 
-async def generate_single_creative(index: int, prompt: str, tone: str, brand_name: str, tagline: str) -> Creative:
+async def generate_single_creative(index: int, tone: str, brand_name: str, tagline: str, product_path: str, logo_path: str) -> Creative:
     # Generate Image
-    image_path = await ImageService.generate_image(prompt, tone)
+    image_path = await ImageService.generate_image(brand_name, tone, tagline, product_path, logo_path)
     image_url = StorageService.get_file_url(image_path)
     
     # Generate Text
